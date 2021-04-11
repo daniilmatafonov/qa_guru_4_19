@@ -11,11 +11,13 @@ import static tests.TestBase.MAIN_CONFIG;
 
 public class BrowserstackHelper {
 
+    public static final String APP_AUTOMATE_SESSIONS = "https://api-cloud.browserstack.com/app-automate/sessions/";
+
     public static String getBrowserstackVideoUrl(String sessionId) {
         String video_url = given()
                 .auth().basic(MAIN_CONFIG.browserstackUser(), MAIN_CONFIG.browserstackKey())
                 .when()
-                .get("https://api-cloud.browserstack.com/app-automate/sessions/" + sessionId +".json")
+                .get(APP_AUTOMATE_SESSIONS + sessionId +".json")
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .extract()
@@ -30,7 +32,7 @@ public class BrowserstackHelper {
         String publicUrl = given()
                 .auth().basic(MAIN_CONFIG.browserstackUser(), MAIN_CONFIG.browserstackKey())
                 .when()
-                .get("https://api-cloud.browserstack.com/app-automate/sessions/" + sessionId +".json")
+                .get(APP_AUTOMATE_SESSIONS + sessionId +".json")
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .extract()

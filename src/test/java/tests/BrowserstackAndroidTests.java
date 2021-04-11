@@ -21,7 +21,7 @@ import static io.appium.java_client.MobileBy.AccessibilityId;
 import static io.qameta.allure.Allure.step;
 
 @Tag("android")
-public class BrowserstackAndroidTests {
+public class BrowserstackAndroidTests extends TestBase {
 
     @Test
     void searchTest() throws MalformedURLException, InterruptedException {
